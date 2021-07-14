@@ -9,3 +9,5 @@ router.post("/new", (req, res)=>{
     success:"ok"
   })
 })
+
+export default router;

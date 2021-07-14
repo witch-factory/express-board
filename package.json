@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "express-board",
   "version": "1.0.0",
   "main": "index.js",
@@ -23,5 +24,6 @@
     "development": "node ./scripts/development.js",
     "test": "echo \"Error: no test specified \" && exit 1",
     "dev": "babel-node ./src/index.js --presets=es2015"
-  }
+  },
+  "repository": "https://github.com/witch-factory/express-board.git"
 }

@@ -1,6 +1,6 @@
 import express from "express";
 import post from "./post.js";
-import auth from "./auth";
+import auth from "./auth.js";
 
 const router=express.Router();
 
