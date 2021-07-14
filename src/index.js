@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 app.use("/api", api);
 
-var sqlQuery="select * from test";
+let sqlQuery="select * from user";
 
 conn.query(sqlQuery, (err,results,fields)=>{
   if(err){console.log(err);}
