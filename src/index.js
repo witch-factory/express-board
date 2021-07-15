@@ -4,7 +4,9 @@ import api from "./routes/api.js";
 import conn from "./db/mysql.js";
 import session from "express-session";
 import session_opts from "./session/options.js";
-var MySQLStort=require("express-mysql-session")(session);
+import MySQLSessionStore from "express-mysql-session";
+
+
 
 
 const app=express();
