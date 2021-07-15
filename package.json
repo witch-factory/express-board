@@ -10,6 +10,7 @@
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "mysql": "^2.18.1",
     "path": "^0.12.7"
   },
@@ -19,8 +20,8 @@
     "babel-watch": "^7.4.1"
   },
   "scripts": {
-    "build": "babel src -d build --presets=es2015",
-    "start": "babel-watch ./build/index.js",
+    "build": "babel src -d build",
+    "start": "node ./build/index.js",
     "development": "node ./scripts/development.js",
     "test": "echo \"Error: no test specified \" && exit 1",
     "dev": "babel-watch ./src/index.js"

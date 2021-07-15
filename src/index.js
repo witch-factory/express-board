@@ -6,7 +6,7 @@ import conn from "./db/mysql.js";
 const app=express();
 let PORT=8080;
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", api);
 
