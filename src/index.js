@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import api from "./routes/api.js";
 import conn from "./db/mysql.js";
 import session from "express-session";
-import session_store_opts from "./session/options.js";
+import session_store_opts from "./session/storeOptions.js";
 import expressMySQLSession from "express-mysql-session";
 
 const MySQLStore=expressMySQLSession(session);

@@ -3,11 +3,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const options={
-  host:'localhost',
-  port:3306,
-  user:'root',
-  password:'zookim97',
-  database:'simplebbs'
+  secret:process.env.SESSION_SECRET,
+  resave:false,
+  saveUninitialized:false
 };
 
 export default options;
