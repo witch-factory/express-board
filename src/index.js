@@ -1,7 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
 import api from "./routes/api.js";
-import conn from "./db/mysql.js";
 import session from "express-session";
 import session_store_opts from "./session/storeOptions.js";
 import expressMySQLSession from "express-mysql-session";
@@ -25,13 +24,6 @@ app.use(
   })
 );
 app.use("/api", api);
-
-let sqlQuery="select * from user";
-
-conn.query(sqlQuery, (err,results,fields)=>{
-  if(err){console.log(err);}
-  console.log(results);
-});
 
 app.get("/test", (req, res)=>{
   req.session.test=1;

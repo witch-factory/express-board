@@ -3,6 +3,69 @@ import mysql from "../db/mysql.js";
 
 const router=express.Router();
 
+router.get("/token", (req, res)=>{
+  //로그인 여부 확인
+  const user=req.session.token;
+  const token=req.sessionID;
+  return res.json({
+    user:user,
+    token
+  });
+});
+
+
+router.post("/login", (req,res)=>{
+  const username=req.body.username;
+  const password=req.body.password;
+
+  let sqlQuery="select password from user where username=?";
+  //username 같은 데이터만 검색해서 찾아온다
+  const post=[username];
+
+  mysql.query(sqlQuery, post, (err, results, fields)=>{
+    if(err){
+      console.log(err);
+      return res.json({
+        ok:false,
+        error:"db error",
+        status:400
+      });
+    }
+    else{
+      //에러 안뜨고 잘 불러옴
+      const user_password=results[0].password;
+      if(password===user_password){
+        //비밀번호가 등록된 것과 같다
+        req.session.token=username;
+        return res.json({
+          ok:true,
+          error:null,
+          status:200
+        });
+      }
+      else{
+        //비밀번호가 등록된 것과 다름
+        return res.json({
+          ok:false,
+          error:"check username and password again",
+          status:400
+        });
+      }
+    }
+
+  })
+})
+
+router.get("/logout", (req, res)=>{
+  //로그아웃 만들기
+  delete req.session.token;
+  return res.json({
+    ok:true,
+    error:null,
+    status:200
+  });
+});
+
 router.post("/new", (req, res)=>{
   console.log(req.body);
 
